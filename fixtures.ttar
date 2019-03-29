@@ -168,6 +168,112 @@ Mems_allowed_list:	0
 voluntary_ctxt_switches:	6340
 nonvoluntary_ctxt_switches:	361
 
+# ttar - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Path: fixtures/26231/task/1/status
+Lines: 50
+Name:	gvim
+State:	S (sleeping)
+Tgid:	1
+Ngid:	0
+Pid:	26231
+PPid:	6429
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	64
+Groups:	999 1000 1001
+NStgid:	26231
+NSpid:	26231
+NSpgid:	26231
+NSsid:	26231
+VmPeak:	  768040 kB
+VmSize:	  713068 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   30652 kB
+VmRSS:	   30632 kB
+VmData:	  377304 kB
+VmStk:	     132 kB
+VmExe:	    2712 kB
+VmLib:	   69672 kB
+VmPTE:	     632 kB
+VmPMD:	      16 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+Threads:	4
+SigQ:	1/128288
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000003001
+SigCgt:	00000001ed824efe
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+Seccomp:	0
+Speculation_Store_Bypass:	thread vulnerable
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6340
+nonvoluntary_ctxt_switches:	361
+
+# ttar - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Path: fixtures/26231/task/2/status
+Lines: 50
+Name:	gvim
+State:	S (sleeping)
+Tgid:	2
+Ngid:	0
+Pid:	26231
+PPid:	6429
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	64
+Groups:	999 1000 1001
+NStgid:	26231
+NSpid:	26231
+NSpgid:	26231
+NSsid:	26231
+VmPeak:	  768040 kB
+VmSize:	  713068 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   30652 kB
+VmRSS:	   30632 kB
+VmData:	  377304 kB
+VmStk:	     132 kB
+VmExe:	    2712 kB
+VmLib:	   69672 kB
+VmPTE:	     632 kB
+VmPMD:	      16 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+Threads:	4
+SigQ:	1/128288
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000003001
+SigCgt:	00000001ed824efe
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+Seccomp:	0
+Speculation_Store_Bypass:	thread vulnerable
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	100
+nonvoluntary_ctxt_switches:	200
+
 Mode: 444
 # ttar - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Directory: fixtures/26232

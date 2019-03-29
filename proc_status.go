@@ -25,30 +25,32 @@ import (
 // read from /proc/[pid]/status.
 type (
 	ProcStatus struct {
-		TID                      int
-		TracerPid                int
-		UIDReal                  int
-		UIDEffective             int
-		UIDSavedSet              int
-		UIDFileSystem            int
-		GIDReal                  int
-		GIDEffective             int
-		GIDSavedSet              int
-		GIDFileSystem            int
-		FDSize                   int
-		VmPeakKB                 int
-		VmSizeKB                 int
-		VmLckKB                  int
-		VmHWMKB                  int
-		VmRSSKB                  int
-		VmDataKB                 int
-		VmStkKB                  int
-		VmExeKB                  int
-		VmLibKB                  int
-		VmPTEKB                  int
-		VmSwapKB                 int
-		VoluntaryCtxtSwitches    int
-		NonvoluntaryCtxtSwitches int
+		TID                         int
+		TracerPid                   int
+		UIDReal                     int
+		UIDEffective                int
+		UIDSavedSet                 int
+		UIDFileSystem               int
+		GIDReal                     int
+		GIDEffective                int
+		GIDSavedSet                 int
+		GIDFileSystem               int
+		FDSize                      int
+		VmPeakKB                    int
+		VmSizeKB                    int
+		VmLckKB                     int
+		VmHWMKB                     int
+		VmRSSKB                     int
+		VmDataKB                    int
+		VmStkKB                     int
+		VmExeKB                     int
+		VmLibKB                     int
+		VmPTEKB                     int
+		VmSwapKB                    int
+		VoluntaryCtxtSwitches       int
+		NonvoluntaryCtxtSwitches    int
+		VoluntaryCtxtSwitchesAll    int
+		NonvoluntaryCtxtSwitchesAll int
 	}
 
 	procStatusFiller  func(*ProcStatus, string) error
@@ -199,5 +201,21 @@ func (p Proc) NewStatus() (ProcStatus, error) {
 	}
 	defer f.Close()
 
-	return psb.readStatus(f)
+	status, err := psb.readStatus(f)
+	tasks, err_tasks := ioutil.ReadDir(p.path("task"))
+	if err_tasks == nil {
+		for _, task := range tasks {
+			t, err_task := os.Open(p.path("task", task.Name()))
+			if err_task == nil {
+				task_status, err_task_status := psb.readStatus(t)
+				if err_task_status == nil {
+					status.VoluntaryCtxtSwitchesAll += task_status.VoluntaryCtxtSwitches
+					status.NonvoluntaryCtxtSwitchesAll += task_status.NonvoluntaryCtxtSwitches
+				}
+			}
+			defer t.Close()
+		}
+	}
+
+	return status, err
 }
