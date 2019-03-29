@@ -36,7 +36,10 @@ func TestProcStatus(t *testing.T) {
 		{name: "tid", want: 26231, have: s.TID},
 		{name: "uidreal", want: 1000, have: s.UIDReal},
 		{name: "vmlib", want: 69672, have: s.VmLibKB},
+		{name: "volctx", want: 6340, have: s.VoluntaryCtxtSwitches},
 		{name: "nonvolctx", want: 361, have: s.NonvoluntaryCtxtSwitches},
+		{name: "volctxall", want: 6440, have: s.VoluntaryCtxtSwitchesAll},
+		{name: "nonvolctxall", want: 561, have: s.NonvoluntaryCtxtSwitchesAll},
 	} {
 		if test.want != test.have {
 			t.Errorf("want %s %d, have %d", test.name, test.want, test.have)
